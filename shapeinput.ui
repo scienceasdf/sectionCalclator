@@ -1,0 +1,275 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>shapeInput</class>
+ <widget class="QDialog" name="shapeInput">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>232</width>
+    <height>300</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>形状信息输入</string>
+  </property>
+  <property name="windowIcon">
+   <iconset>
+    <normaloff>sectionCalc1.ico</normaloff>sectionCalc1.ico</iconset>
+  </property>
+  <widget class="QLineEdit" name="nameText">
+   <property name="geometry">
+    <rect>
+     <x>100</x>
+     <y>10</y>
+     <width>111</width>
+     <height>20</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>10</y>
+     <width>54</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>名称</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_2">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>40</y>
+     <width>54</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>重心X坐标</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_3">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>70</y>
+     <width>54</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>重心Y坐标</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_4">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>130</y>
+     <width>54</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Ixc</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_5">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>160</y>
+     <width>54</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Iyc</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_6">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>190</y>
+     <width>54</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Ixyc</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_7">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>100</y>
+     <width>54</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>面积</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="OKpush">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>260</y>
+     <width>75</width>
+     <height>23</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>OK</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="cancelButton">
+   <property name="geometry">
+    <rect>
+     <x>140</x>
+     <y>260</y>
+     <width>75</width>
+     <height>23</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Cancel</string>
+   </property>
+  </widget>
+  <widget class="QDoubleSpinBox" name="XBox">
+   <property name="geometry">
+    <rect>
+     <x>100</x>
+     <y>40</y>
+     <width>111</width>
+     <height>22</height>
+    </rect>
+   </property>
+   <property name="decimals">
+    <number>8</number>
+   </property>
+   <property name="minimum">
+    <double>-100000000000000.000000000000000</double>
+   </property>
+   <property name="maximum">
+    <double>100000000000000.000000000000000</double>
+   </property>
+  </widget>
+  <widget class="QDoubleSpinBox" name="YBox">
+   <property name="geometry">
+    <rect>
+     <x>100</x>
+     <y>70</y>
+     <width>111</width>
+     <height>22</height>
+    </rect>
+   </property>
+   <property name="decimals">
+    <number>8</number>
+   </property>
+   <property name="minimum">
+    <double>-100000000000000.000000000000000</double>
+   </property>
+   <property name="maximum">
+    <double>100000000000000.000000000000000</double>
+   </property>
+  </widget>
+  <widget class="QDoubleSpinBox" name="areaBox">
+   <property name="geometry">
+    <rect>
+     <x>100</x>
+     <y>100</y>
+     <width>111</width>
+     <height>22</height>
+    </rect>
+   </property>
+   <property name="decimals">
+    <number>8</number>
+   </property>
+   <property name="minimum">
+    <double>-100000000000000.000000000000000</double>
+   </property>
+   <property name="maximum">
+    <double>100000000000000.000000000000000</double>
+   </property>
+  </widget>
+  <widget class="QDoubleSpinBox" name="ixcBox">
+   <property name="geometry">
+    <rect>
+     <x>100</x>
+     <y>130</y>
+     <width>111</width>
+     <height>22</height>
+    </rect>
+   </property>
+   <property name="decimals">
+    <number>8</number>
+   </property>
+   <property name="minimum">
+    <double>-100000000000000.000000000000000</double>
+   </property>
+   <property name="maximum">
+    <double>100000000000000.000000000000000</double>
+   </property>
+  </widget>
+  <widget class="QDoubleSpinBox" name="iycBox">
+   <property name="geometry">
+    <rect>
+     <x>100</x>
+     <y>160</y>
+     <width>111</width>
+     <height>22</height>
+    </rect>
+   </property>
+   <property name="decimals">
+    <number>8</number>
+   </property>
+   <property name="minimum">
+    <double>-100000000000000.000000000000000</double>
+   </property>
+   <property name="maximum">
+    <double>100000000000000.000000000000000</double>
+   </property>
+  </widget>
+  <widget class="QDoubleSpinBox" name="ixycBox">
+   <property name="geometry">
+    <rect>
+     <x>100</x>
+     <y>190</y>
+     <width>111</width>
+     <height>22</height>
+    </rect>
+   </property>
+   <property name="decimals">
+    <number>8</number>
+   </property>
+   <property name="minimum">
+    <double>-100000000000000.000000000000000</double>
+   </property>
+   <property name="maximum">
+    <double>100000000000000.000000000000000</double>
+   </property>
+  </widget>
+ </widget>
+ <tabstops>
+  <tabstop>nameText</tabstop>
+  <tabstop>XBox</tabstop>
+  <tabstop>YBox</tabstop>
+  <tabstop>areaBox</tabstop>
+  <tabstop>ixcBox</tabstop>
+  <tabstop>iycBox</tabstop>
+  <tabstop>ixycBox</tabstop>
+  <tabstop>OKpush</tabstop>
+  <tabstop>cancelButton</tabstop>
+ </tabstops>
+ <resources/>
+ <connections/>
+</ui>
