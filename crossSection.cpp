@@ -1,7 +1,35 @@
 #include "crossSection.h"
 #include<cmath>
+#include<QDebug>
 
 #define PI 3.1415926
+
+shape operator+(shape &shp1,shape &shp2)
+{
+    shape shp;
+    double s=shp1.area+shp2.area;
+    double cx=(shp1.xc*shp1.area+shp2.xc*shp2.area)/s;
+    double cy=(shp1.yc*shp1.area+shp2.yc*shp2.area)/s;
+    double Ixx=shp1.Ix+shp2.Ix;
+    double Iyy=shp1.Iy+shp2.Iy;
+    double Ixxy=shp1.Ixy+shp2.Ixy;
+    shp=shape(cx,cy,s,Ixx,Iyy,Ixxy);
+    return shp;
+}
+
+shape operator-(shape &shp1,shape &shp2)
+{
+    shape shp;
+    double s=shp1.area-shp2.area;
+    double cx=(s!=0)?(shp1.xc*shp1.area-shp2.xc*shp2.area)/s:0;
+    double cy=(s!=0)?(shp1.yc*shp1.area-shp2.yc*shp2.area)/s:0;
+    double Ixx=shp1.Ix-shp2.Ix;
+    double Iyy=shp1.Iy-shp2.Iy;
+    double Ixxy=shp1.Ixy-shp2.Ixy;
+    shp=shape(cx,cy,s,Ixx,Iyy,Ixxy);
+    return shp;
+}
+
 
 double shape::Ixc(){
     return (Ix-area*yc*yc);
@@ -63,34 +91,6 @@ double shape::Ixc(){
     ySymmetry=(x==0) && (ixy==0);
 }
 
-
- /*template<class shape1, class shape2>
- shape operator+(shape1 &shp1, shape2 &shp2)
- {
-     shape shp;
-     double s=shp1.area+shp2.area;
-     double cx=(shp1.xc*shp1.area+shp2.xc*shp2.area)/s;
-     double cy=(shp1.yc*shp1.area+shp2.yc*shp2.area)/s;
-     double Ixx=shp1.Ix+shp2.Ix;
-     double Iyy=shp1.Iy+shp2.Iy;
-     double Ixxy=shp1.Ixy+shp2.Ixy;
-     shp=shape(cx,cy,s,Ixx,Iyy,Ixxy);
-     return shp;
- }
-
- template<class shape1, class shape2>
- shape operator-(shape1 &shp1, shape2 &shp2)
- {
-     shape shp;
-     double s=shp1.area-shp2.area;
-     double cx=(shp1.xc*shp1.area-shp2.xc*shp2.area)/s;
-     double cy=(shp1.yc*shp1.area-shp2.yc*shp2.area)/s;
-     double Ixx=shp1.Ix-shp2.Ix;
-     double Iyy=shp1.Iy-shp2.Iy;
-     double Ixxy=shp1.Ixy-shp2.Ixy;
-     shp=shape(cx,cy,s,Ixx,Iyy,Ixxy);
-     return shp;
- }*/
 
 
  rectangle::rectangle(double& x,double& y,double& wid,double& hei)
