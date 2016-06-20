@@ -56,14 +56,21 @@ void chouxiang::on_eraButton_clicked()
 
         }
     else{
-        tolShp=tolShp-shpList[str];
-        ui->list1->clear();
-        ui->list1->addItem("全部");
-        shpList.erase(str);
-        std::map<QString,shape>::iterator p=shpList.end();
-        for(std::map<QString,shape>::iterator iter=shpList.begin();iter!=p;++iter){
-            ui->list1->addItem(iter->first);
+        if(shpList.size()>1){
+            tolShp=tolShp-shpList[str];
+            ui->list1->clear();
+            ui->list1->addItem("全部");
+            shpList.erase(str);
+            std::map<QString,shape>::iterator p=shpList.end();
+            for(std::map<QString,shape>::iterator iter=shpList.begin();iter!=p;++iter)
+                ui->list1->addItem(iter->first);
         }
+            else{
+                tolShp=shape(0,0,0,0,0,0);
+                ui->list1->clear();
+                ui->list1->addItem("全部");
+                shpList.erase(str);
+            }
         }
     ui->list1->setCurrentRow(0);
 }
@@ -84,9 +91,16 @@ void chouxiang::on_movButton_clicked()
         }
         }
     else{
-        tolShp=tolShp-shpList[str];
-        shpList[str].move(x,y);
-        tolShp=tolShp+shpList[str];
+        if(shpList.size()>1){
+            tolShp=tolShp-shpList[str];
+            shpList[str].move(x,y);
+            tolShp=tolShp+shpList[str];
+        }
+        else{
+            tolShp=shape(0,0,0,0,0,0);
+            shpList[str].move(x,y);
+            tolShp=tolShp+shpList[str];
+        }
     }
     ui->list1->setCurrentRow(0);
     showShpInfo(tolShp);
@@ -106,9 +120,16 @@ void chouxiang::on_rotButton_clicked()
         }
         }
     else{
-        tolShp=tolShp-shpList[str];
-        shpList[str].rotate(th);
-        tolShp=tolShp+shpList[str];
+            if(shpList.size()>1){
+                tolShp=tolShp-shpList[str];
+                shpList[str].rotate(th);
+                tolShp=tolShp+shpList[str];
+            }
+            else{
+                tolShp=shape(0,0,0,0,0,0);
+                shpList[str].rotate(th);
+                tolShp=tolShp+shpList[str];
+            }
     }
     ui->list1->setCurrentRow(0);
     showShpInfo(tolShp);
