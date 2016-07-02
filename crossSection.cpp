@@ -136,3 +136,43 @@ double shape::Ixc(){
     ySymmetry=!x;
 }
 
+bool Intersect(rectangle& rect, circle& cir)
+{
+    //Algorithm from the Internet
+    //Milo Yip's answer in Zhihu
+    //https://www.zhihu.com/question/24251545
+    //It can work in n-dimension condition
+    double v[]={abs(rect.xc-cir.xc),abs(rect.yc-cir.yc)};
+    double u[]={0,0};
+    double h[]={rect.b/2.0,rect.h/2.0};
+    u[0]=((v[0]-h[0])>0)?(v[0]-h[0]):.0;
+    u[1]=((v[1]-h[1])>0)?(v[1]-h[1]):.0;
+    return (u[0]*u[0]+u[1]*u[1])<(cir.diameter*cir.diameter/4.0);
+}
+
+bool Intersect(circle& cir, rectangle& rect)
+{
+    double v[]={abs(rect.xc-cir.xc),abs(rect.yc-cir.yc)};
+    double u[]={0,0};
+    double h[]={rect.b/2.0,rect.h/2.0};
+    u[0]=((v[0]-h[0])>0)?(v[0]-h[0]):.0;
+    u[1]=((v[1]-h[1])>0)?(v[1]-h[1]):.0;
+    return (u[0]*u[0]+u[1]*u[1])<(cir.diameter*cir.diameter/4.0);
+}
+
+bool Intersect(rectangle& rect1, rectangle& rect2)
+{
+    double minx1=rect1.xc-rect1.b/2.0;
+    double miny1=rect1.yc-rect1.h/2.0;
+    double maxx1=rect1.xc+rect1.b/2.0;
+    double maxy1=rect1.yc+rect1.h/2.0;
+    double minx2=rect2.xc-rect2.b/2.0;
+    double miny2=rect2.yc-rect2.h/2.0;
+    double maxx2=rect2.xc+rect2.b/2.0;
+    double maxy2=rect2.yc+rect2.h/2.0;
+    double minx=std::min(minx1,minx2);
+    double miny=std::min(miny1,miny2);
+    double maxx=std::max(maxx1,maxx2);
+    double maxy=std::max(maxy1,maxy2);
+    return ((minx<maxx)||(miny<maxy));
+}
