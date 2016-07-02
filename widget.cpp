@@ -121,11 +121,13 @@ void Widget::on_addButton_clicked()
         paintArea->vecRec.push_back(rectangle(x,y,up,down));
         break;
     case 1:
+        //circle temp(x,y,ring);
+        //if(Intersect(temp,))
         shp1=shp1+ring(x,y,up,0);
         paintArea->vecRing.push_back(ring(x,y,up,0));
         break;
     case 2:
-        shp1=shp1+ring(x,y,up,0);
+        shp1=shp1+ring(x,y,up,down);
         paintArea->vecRing.push_back(ring(x,y,up,down));
         break;
     default:
