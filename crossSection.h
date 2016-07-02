@@ -17,18 +17,6 @@ class shape{
         double Ixyc();
         shape& move(double& x, double& y);
         shape& rotate(double theta);
-        /*template<class shape1>shape& operator+=(shape1 &shp1)
-        {
-            shape shp;
-            double s=shp1.area+area;
-            double cx=(shp1.xc*shp1.area+xc*area)/s;
-            double cy=(shp1.yc*shp1.area+yc*area)/s;
-            double Ixx=shp1.Ix+Ix;
-            double Iyy=shp1.Iy+Iy;
-            double Ixxy=shp1.Ixy+Ixy;
-            shp=shape(cx,cy,s,Ixx,Iyy,Ixxy);
-            return shp;
-        }*/
 
 };
 
@@ -64,14 +52,9 @@ public:
 
 shape operator+(shape shp1,shape shp2);
 shape operator-(shape shp1,shape shp2);
-/*shape operator+(shape &shp1,ring &shp2);
-shape operator-(shape &shp1,ring &shp2);
-shape operator+(shape &shp1,rectangle &shp2);
-shape operator-(shape &shp1,rectangle &shp2);*/
-/*template<class shape1, class shape2>
-shape operator+(shape1 &shp1, shape2 &shp2);
-template<class shape1, class shape2>
-shape operator-(shape1 &shp1, shape2 &shp2);
-template<class shape1>*/
+
+bool Intersect(rectangle& rect, circle& cir);
+bool Intersect(circle& cir, rectangle& rect);
+bool Intersect(rectangle& rect1, rectangle& rect2);
 
 #endif // SECTION_H
