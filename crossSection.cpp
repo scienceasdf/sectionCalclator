@@ -100,8 +100,8 @@ double shape::Ixc(){
     h=hei;
     b=wid;
     area=hei*wid;
-    Iy=b*h*h*h/12.0+area*y*y;
-    Ix=h*b*b*b/12.0+area*x*x;
+    Ix=b*h*h*h/12.0+area*y*y;
+    Iy=h*b*b*b/12.0+area*x*x;
     Ixy=x*y*area;
     xSymmetry=! y;
     ySymmetry=! x;
